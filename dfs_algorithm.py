@@ -16,7 +16,6 @@ class DFS(Framework):
 
         #Requeridos
         self.shortest_path = []
-        self.previus_cost = {}
         self.all_pixels = []
         self.checked = []
         self.line_up = []
@@ -27,9 +26,7 @@ class DFS(Framework):
 
     #Accion que realiza a partir del pixel en el que se esta actualmente
     def actions(self):
-        contiguous_pixels = [(self.pxl_actual[0]+1,self.pxl_actual[1]), (self.pxl_actual[0]-1,self.pxl_actual[1]), (self.pxl_actual[0],self.pxl_actual[1]+1), (self.pxl_actual[0],self.pxl_actual[1]-1)]
-        contiguous_pixels = [pxl for pxl in contiguous_pixels if self.maze[pxl[1]][pxl[0]]!=color(0,0,0)]
-        return contiguous_pixels
+        self.checked.append(self.inicio)
 
     #El resultado de realizar una accion en el estado actual
     def results(self, current, pxl):
@@ -44,45 +41,14 @@ class DFS(Framework):
             return True
         return False
 
-    #Costo de pasar de un pixel a otro ("Yo vengo de")
     def stepTest(self, pxl,current):
-        self.previus_cost[pxl] = current
+        pass
 
     #Devuelve el camino mas corto encontrado
     def pathTest(self):
-            self.shortest_path = []
-            while self.pxl_actual != self.inicio:
-                self.shortest_path.append(self.pxl_actual)
-                self.pxl_actual = self.previus_cost[self.pxl_actual]
-            self.shortest_path.append(self.inicio)
-            return self.shortest_path[::-1]
+        pass
 
     #Lleva el control de manera ciclica del algoritmo
     #Ejecutando los algoritmos anteriores
     def algorithmDFS(self):
-        print('Inicio:',self.inicio)
-        print('Fin',self.final)
-        #Algoritmo DFS
-        self.previus_cost = {self.inicio: None}
-        self.checked.append(self.inicio)
-        self.line_up.append(self.inicio)
-
-        #Mientras line_up tenga elementos
-        while  self.line_up:
-            #Se asigna el pixel actual y se lleva control de todos los pieles
-            self.pxl_actual =  self.line_up.pop(0)
-            self.all_pixels.append(self.pxl_actual)
-
-            #Si se cumple la meta devolver el camino mas corto
-            if self.goalTest():
-                return self.pathTest()
-
-            #Si aun no se cumple la meta
-            #Obtener los pixeles contiguos posibles
-            contiguous_pixels = self.actions()
-
-            #Y por cada nodo posible, llamar a results para
-            #Agregarlo a los arrreglos respectivos (line_up, checked y llevar el costo)
-            for pxl in contiguous_pixels:
-                if pxl not in self.checked:
-                    self.results(self.pxl_actual, pxl)
+        pass
