@@ -19,6 +19,10 @@ pip install opencv-python
 pip install pygame
 ```
 
+### Recomendaciones
+
+_Si el mapa a probar es muy detallado, se recomienda aumentar el Ancho y Alto de main a 100 cada valor_
+
 ## Autores ✒️
 
 - Gabriel Vicente 20498
@@ -28,3 +32,6 @@ pip install pygame
 <a href="https://github.com/GabrielVicente-GT/IA_Laboratorio1/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=GabrielVicente-GT/IA_Laboratorio1" />
 </a>
+
+## Licencia 📄
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE](LICENSE) para detalles
