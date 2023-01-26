@@ -19,6 +19,10 @@ pip install opencv-python
 pip install pygame
 ```
 
+### Recomendaciones
+
+_Si el mapa a probar es muy detallado, se recomienda aumentar el Ancho y Alto de main a 100 cada valor_
+
 ## Autores ✒️
 
 - Gabriel Vicente 20498
