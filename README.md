@@ -1,3 +1,9 @@
+![UVG](https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png) <br>
+Facultad de Ingeniería <br>
+Departamento de Ciencias de la Computación <br>
+CC3085 Inteligencia Artificial <br>
+
+
 # IA_Laboratorio1
 Implementación de BFS, DFS y A Start con dos heurísticas que permite observar los pasos que se siguiern para resolver un laberinto en varios BMP
 (Laberinto original, discretizacion y solución).
