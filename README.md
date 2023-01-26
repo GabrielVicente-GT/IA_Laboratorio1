@@ -28,3 +28,6 @@ pip install pygame
 <a href="https://github.com/GabrielVicente-GT/IA_Laboratorio1/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=GabrielVicente-GT/IA_Laboratorio1" />
 </a>
+
+## Licencia 📄
+Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para detalles
