@@ -7,8 +7,8 @@ from animated_solution import *
 from graph_search import *
 
 #Ancho, Alto y ruta de archivo a discretizar y solucionar
-Ancho, Alto = 52,52
-OriginalMaze = "./Laberintos/MazeA.bmp"
+Ancho, Alto = 100,100
+OriginalMaze = "./Laberintos/turing.bmp"
 
 #Se llama a GraphSearch que discretiza la imagen y le aplica la solucion
 SolvedMaze = GraphSearch(OriginalMaze,Ancho,Alto)
