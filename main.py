@@ -12,5 +12,7 @@ OriginalMaze = "./Laberintos/MazeA.bmp"
 
 #Se llama a GraphSearch que discretiza la imagen y le aplica la solucion
 SolvedMaze = GraphSearch(OriginalMaze,Ancho,Alto)
+SolvedMaze.apply_solution_a_euclidean()
+SolvedMaze.apply_solution_a_manhattan()
 #Segun los valores obtenidos con GraphSearch se anima el algoritmo
-Animate(Ancho, Alto, SolvedMaze.morados, SolvedMaze.naranja)
+#Animate(Ancho, Alto, SolvedMaze.morados, SolvedMaze.naranja)

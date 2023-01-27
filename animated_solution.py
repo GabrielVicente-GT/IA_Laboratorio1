@@ -1,4 +1,4 @@
-import pygame
+
 import numpy as np
 import time as temporizador
 from wr_functions import *

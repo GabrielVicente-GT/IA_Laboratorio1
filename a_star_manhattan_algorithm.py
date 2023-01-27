@@ -25,7 +25,7 @@ class A_STAR_MANHATTAN(Framework):
 
         # sum of absolute difference between coordinates
         distance = 0
-        for p_i,q_i in zip(point_1, point_2):
+        for p_i, q_i in zip(point_1, point_2):
             distance += abs(p_i - q_i)
         
         return distance
@@ -64,6 +64,7 @@ class A_STAR_MANHATTAN(Framework):
                 # Se calcula la heuristica actual utilizando la distancia Euclideana
                 heuristica =  self.manhattan_distance(nodo_final, nodo)
                 h.append(heuristica)
+                
             
             # Se calcula la funcion f
             f = round(g + min(h))
@@ -121,7 +122,7 @@ class A_STAR_MANHATTAN(Framework):
 
         while self.line_up:
             
-            self.current =  self.line_up.pop(0)
+            self.current = self.line_up.pop(0)
             
             self.goalTest()
             
@@ -136,3 +137,4 @@ class A_STAR_MANHATTAN(Framework):
                     self.costos[costIndex] = 999999
                 
             self.costo_minimo = min(self.costos)
+            self.stepTest()
