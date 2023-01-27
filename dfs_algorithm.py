@@ -26,7 +26,15 @@ class DFS(Framework):
 
     #Accion que realiza a partir del pixel en el que se esta actualmente
     def actions(self):
+        
         self.checked.append(self.inicio)
+        self.line_up.append(self.inicio)
+
+        #Mientras line_up tenga elementos
+        while  self.line_up:
+            #Se asigna el pixel actual y se lleva control de todos los pieles
+            self.pxl_actual =  self.line_up.pop(0)
+            self.all_pixels.append(self.pxl_actual)
 
     #El resultado de realizar una accion en el estado actual
     def results(self, current, pxl):
