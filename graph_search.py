@@ -47,11 +47,13 @@ class GraphSearch(object):
                 if self.imagen.framebuffer[y][x] == color(0,255,0):
                     for pareja in pairs:
                         if pareja != (0,0):
-                            self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] = color(255,255,255)
+                            if self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] == color(0,255,0):
+                                self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] = color(255,255,255)
                 elif self.imagen.framebuffer[y][x] == color(255,0,0):
                     for pareja in pairs:
                         if pareja != (0,0):
-                            self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] = color(255,255,255)
+                            if self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] == color(255,0,0):
+                                self.imagen.framebuffer[y+pareja[0]][x+pareja[1]] = color(255,255,255)
 
         #Delimitar areas del maze
         for x in range(self.width):
