@@ -1,8 +1,9 @@
 
-import numpy as np
 import time as temporizador
 from wr_functions import *
 from wr_bmp import *
+import numpy as np
+import pygame
 
 class Animate(object):
 

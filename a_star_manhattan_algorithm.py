@@ -2,7 +2,7 @@ from wr_functions import *
 from framework import Framework
 
 class A_STAR_MANHATTAN(Framework):
-     
+
     def __init__(self, maze, w, h):
         self.anchura = w
         self.altura = h
