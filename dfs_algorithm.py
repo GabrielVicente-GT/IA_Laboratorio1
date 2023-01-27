@@ -25,7 +25,6 @@ class DFS(Framework):
         self.objetive = False
         #Se llama a acciones
         self.actions()
-        #print(self.all_pixels)
         print('¿Se cumplio con el objetivo?', self.objetive)
 
     #Accion que realiza a partir del pixel en el que se esta actualmente
@@ -36,7 +35,7 @@ class DFS(Framework):
         #Mientras line_up tenga elementos
         while self.line_up:
             
-            self.pxl_actual =  self.line_up.pop(len(self.line_up) - 1)
+            self.pxl_actual =  self.line_up.pop(0)
             self.result_path.append(self.pxl_actual)
 
             if self.goalTest == True:
@@ -66,17 +65,17 @@ class DFS(Framework):
     #Lleva el control de manera ciclica del algoritmo
     #Ejecutando los algoritmos anteriores
     def algorithmDFS(self, pxlactual):
-        x, y = pxlactual[0], pxlactual [1]
+        x, y = pxlactual[0], pxlactual[1]
 
-        if (y - 1) != color(0, 0, 0) and (x, y - 1) not in self.result_path:
-            self.line_up.append((x, y - 1))
-            self.all_pixels.append((x, y - 1))
-        if (x + 1) != color(0, 0, 0) and (x + 1, y) not in self.result_path:
-            self.line_up.append((x + 1, y))
-            self.all_pixels.append((x + 1, y))
-        if (y + 1) != color(0, 0, 0) and (x, y + 1) not in self.result_path:
-            self.line_up.append((x, y + 1))
-            self.all_pixels.append((x, y + 1))
-        if (x - 1) != color(0, 0, 0) and (x - 1, y) not in self.result_path:
+        if self.maze[x - 1][y] != color(0, 0, 0) and (x - 1, y) not in self.result_path:
             self.line_up.append((x - 1, y))
             self.all_pixels.append((x - 1, y))
+        elif self.maze[x][y + 1]  != color(0, 0, 0) and (x, y + 1) not in self.result_path:
+            self.line_up.append((x, y + 1))
+            self.all_pixels.append((x, y + 1))
+        elif self.maze[x + 1][y]  != color(0, 0, 0) and (x + 1, y) not in self.result_path:
+            self.line_up.append((x + 1, y))
+            self.all_pixels.append((x + 1, y))
+        elif self.maze[x][y - 1]  != color(0, 0, 0) and (x, y - 1) not in self.result_path:
+            self.line_up.append((x, y - 1))
+            self.all_pixels.append((x, y - 1))

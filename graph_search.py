@@ -116,7 +116,7 @@ class GraphSearch(object):
                 self.imagen.framebuffer[y][x] = color(243, 156, 18)
 
         #Se escribe la self.imagen
-        self.imagen.write("./Laberintos/NewMazeSolution_DFS.bmp")
+        self.imagen.write("./Laberintos/NewMazeSolution.bmp")
         
         
     def apply_solution_a_euclidean(self):

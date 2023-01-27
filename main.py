@@ -8,7 +8,7 @@ from graph_search import *
 
 #Ancho, Alto y ruta de archivo a discretizar y solucionar
 Ancho, Alto = 44,44
-OriginalMaze = "./Laberintos/MazeD.bmp"
+OriginalMaze = "./Laberintos/MazeA.bmp"
 
 if OriginalMaze == "./Laberintos/MazeD.bmp":
     Ancho, Alto = 100,100
@@ -34,6 +34,7 @@ while True:
             SolvedMaze.apply_solution()
         elif opcion == 2:
             print("DFS")
+            SolvedMaze.apply_solution_DFS()
         elif opcion == 3:
             print("AStart (manhattan)")
             SolvedMaze.apply_solution_a_manhattan()
