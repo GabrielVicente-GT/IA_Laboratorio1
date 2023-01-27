@@ -5,6 +5,7 @@ from wr_bmp import *
 import itertools
 from a_star_euclidean_algorithm import *
 from a_star_manhattan_algorithm import *
+from dfs_algorithm import *
 
 #Clase que permite obtener el arreglo bidimensional de colores
 #Y escribe el mapa discretizado
@@ -22,9 +23,10 @@ class GraphSearch(object):
 
         #Escritura y aplicacion de solucion
         self.wr_image()
-        self.apply_solution()
-        self.apply_solution_a_euclidean()
-        self.apply_solution_a_manhattan()
+        # self.apply_solution()
+        self.apply_solution_DFS()
+        # self.apply_solution_a_euclidean()
+        # self.apply_solution_a_manhattan()
 
     def wr_image(self):
         #Minimizar mapa
@@ -91,6 +93,30 @@ class GraphSearch(object):
 
         #Se escribe la self.imagen
         self.imagen.write("./Laberintos/NewMazeSolution.bmp")
+
+    def apply_solution_DFS(self):
+        #Solution
+        #DFS algorithm general
+        maze_solution = DFS(self.imagen.framebuffer, self.width, self.height)
+
+        #Reasignacion de valores de pixeles visitados y camino corto
+        self.naranja = maze_solution.result_path
+        self.morados = maze_solution.all_pixels
+
+        #Se pintan los pixeles morados
+        for pixel in maze_solution.all_pixels:
+            x,y = pixel
+            if pixel != maze_solution.inicio and pixel not in maze_solution.final:
+                self.imagen.framebuffer[y][x] = color(125, 60, 152)
+
+        #Se pintan los pixeles anaranjados
+        for pixel in maze_solution.shortest_path:
+            x,y = pixel
+            if pixel != maze_solution.inicio and pixel not in maze_solution.final:
+                self.imagen.framebuffer[y][x] = color(243, 156, 18)
+
+        #Se escribe la self.imagen
+        self.imagen.write("./Laberintos/NewMazeSolution_DFS.bmp")
         
         
     def apply_solution_a_euclidean(self):
