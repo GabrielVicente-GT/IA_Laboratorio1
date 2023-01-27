@@ -30,7 +30,7 @@ _Si el mapa a probar es muy detallado, se recomienda aumentar el Ancho y Alto de
 - Pedro Arrriola 20188
 
 <a href="https://github.com/GabrielVicente-GT/IA_Laboratorio1/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=GabrielVicente-GT/IA_Laboratorio1" />
+  <img src="https://contrib.rocks/image?repo=GabrielVicente-GT/IA_Laboratorio1"/>
 </a>
 
 ## Licencia 📄
