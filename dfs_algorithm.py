@@ -14,6 +14,9 @@ class DFS(Framework):
         self.inicio     = [(x,y) for x in range(self.anchura) for y in range(self.altura) if self.maze[y][x] == color(255,0,0)][0]
         self.final      = [(x,y) for x in range(self.anchura) for y in range(self.altura) if self.maze[y][x] == color(0,255,0)]
 
+        print(self.inicio)
+        print(self.final)
+
         #Requeridos
         self.result_path = []
         self.all_pixels = []
@@ -21,19 +24,36 @@ class DFS(Framework):
         self.line_up = []
         self.objetive = False
         #Se llama a acciones
+        self.actions()
+        #print(self.all_pixels)
         print('¿Se cumplio con el objetivo?', self.objetive)
 
     #Accion que realiza a partir del pixel en el que se esta actualmente
     def actions(self):
         
-        self.checked.append(self.inicio)
         self.line_up.append(self.inicio)
 
         #Mientras line_up tenga elementos
-        while  self.line_up:
-            #Se asigna el pixel actual y se lleva control de todos los pieles
-            self.pxl_actual =  self.line_up.pop(0)
-            self.all_pixels.append(self.pxl_actual)
+        while self.line_up:
+            
+            self.pxl_actual =  self.line_up.pop(len(self.line_up) - 1)
+            self.result_path.append(self.pxl_actual)
+
+            if self.goalTest == True:
+                return self.result_path
+
+            self.algorithmDFS(self.pxl_actual)
+
+            
+
+    def pathTest(self):
+        pass
+
+    def results(self):
+        pass
+
+    def stepTest(self):
+        pass
 
 
     #Verificacion de si el pixel actual esta dentro de alguno de los finales
@@ -48,11 +68,15 @@ class DFS(Framework):
     def algorithmDFS(self, pxlactual):
         x, y = pxlactual[0], pxlactual [1]
 
-        if (y - 1) != color(0, 0, 0):
-            self.line_up.append()
-        if (x + 1) != color(0, 0, 0):
-            self.line_up.append()
-        if (y + 1) != color(0, 0, 0):
-            self.line_up.append()
-        if (x - 1) != color(0, 0, 0):
-            self.line_up.append()
+        if (y - 1) != color(0, 0, 0) and (x, y - 1) not in self.result_path:
+            self.line_up.append((x, y - 1))
+            self.all_pixels.append((x, y - 1))
+        if (x + 1) != color(0, 0, 0) and (x + 1, y) not in self.result_path:
+            self.line_up.append((x + 1, y))
+            self.all_pixels.append((x + 1, y))
+        if (y + 1) != color(0, 0, 0) and (x, y + 1) not in self.result_path:
+            self.line_up.append((x, y + 1))
+            self.all_pixels.append((x, y + 1))
+        if (x - 1) != color(0, 0, 0) and (x - 1, y) not in self.result_path:
+            self.line_up.append((x - 1, y))
+            self.all_pixels.append((x - 1, y))

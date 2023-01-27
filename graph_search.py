@@ -94,6 +94,7 @@ class GraphSearch(object):
         self.imagen.write("./Laberintos/NewMazeSolution.bmp")
 
     def apply_solution_DFS(self):
+        self.wr_image()
         #Solution
         #DFS algorithm general
         maze_solution = DFS(self.imagen.framebuffer, self.width, self.height)
@@ -109,7 +110,7 @@ class GraphSearch(object):
                 self.imagen.framebuffer[y][x] = color(125, 60, 152)
 
         #Se pintan los pixeles anaranjados
-        for pixel in maze_solution.shortest_path:
+        for pixel in maze_solution.result_path:
             x,y = pixel
             if pixel != maze_solution.inicio and pixel not in maze_solution.final:
                 self.imagen.framebuffer[y][x] = color(243, 156, 18)
