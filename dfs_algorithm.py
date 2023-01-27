@@ -67,15 +67,15 @@ class DFS(Framework):
     def algorithmDFS(self, pxlactual):
         x, y = pxlactual[0], pxlactual[1]
 
-        if self.maze[x - 1][y] != color(0, 0, 0) and (x - 1, y) not in self.result_path:
+        if self.maze[y][x - 1] != color(0, 0, 0) and (x - 1, y) not in self.result_path:
             self.line_up.append((x - 1, y))
             self.all_pixels.append((x - 1, y))
-        elif self.maze[x][y + 1]  != color(0, 0, 0) and (x, y + 1) not in self.result_path:
+        elif self.maze[y + 1][x]  != color(0, 0, 0) and (x, y + 1) not in self.result_path:
             self.line_up.append((x, y + 1))
             self.all_pixels.append((x, y + 1))
-        elif self.maze[x + 1][y]  != color(0, 0, 0) and (x + 1, y) not in self.result_path:
+        elif self.maze[y][x + 1]  != color(0, 0, 0) and (x + 1, y) not in self.result_path:
             self.line_up.append((x + 1, y))
             self.all_pixels.append((x + 1, y))
-        elif self.maze[x][y - 1]  != color(0, 0, 0) and (x, y - 1) not in self.result_path:
+        elif self.maze[y - 1][x]  != color(0, 0, 0) and (x, y - 1) not in self.result_path:
             self.line_up.append((x, y - 1))
             self.all_pixels.append((x, y - 1))
