@@ -12,9 +12,9 @@ class A_STAR_EUCLIDEAN(Framework):
         self.maze = maze
 
         #Inicio y final
-        self.inicio = [(x, y) for x in range(self.anchura) for y in range(self.altura) if self.maze[y][x] == color(255, 0, 0)][0]
-        self.final = [(x, y) for x in range(self.anchura) for y in range(self.altura) if self.maze[y][x] == color(0, 255, 0)]
-
+        self.inicio = None
+        self.final = []
+        
         self.came_from = None
         
         self.line_up = []
@@ -23,7 +23,6 @@ class A_STAR_EUCLIDEAN(Framework):
         self.costos = []
 
         self.actions()
-
         
     # La funcion results regresa los valores finales del algoritmo A* Search Algorithm
     def results(self):
@@ -57,6 +56,7 @@ class A_STAR_EUCLIDEAN(Framework):
             
             for nodo_final in self.final:
                 # Se calcula la heuristica actual utilizando la distancia Euclideana
+               
                 heuristica =  dist(nodo_final, nodo)
                 h.append(heuristica)
             
@@ -110,20 +110,32 @@ class A_STAR_EUCLIDEAN(Framework):
                     
     # La funcion actions sirve para la implentacion del funcionamiento del algoritmo A* Search Algorithm
     def actions(self):
+        
+        for y in range(self.altura):
+            for x in range(self.anchura):
+                if self.maze[y][x] == color(255, 0, 0):
+                    self.inicio = (x,y)
+                elif self.maze[y][x] == color(0, 255, 0):
+                    self.final.append((x,y))
+        
+        print(self.inicio)
+        print(self.final)
         self.line_up.append(self.inicio)
         self.all_pixels.append(self.inicio)
         self.came_from = {self.inicio: None}
 
         while self.line_up:
             
-            self.current =  self.line_up.pop(0)
+            self.current = self.line_up.pop(0)
             
             self.goalTest()
             
             
             self.vecinos = self.pathTest(self.current)
+            print(self.vecinos)
         
             self.costos = self.costTest(self.vecinos)
+            print(self.costos)
         
             for costIndex in range(len(self.costos)):
                 if self.vecinos[costIndex] in self.all_pixels:
@@ -131,3 +143,6 @@ class A_STAR_EUCLIDEAN(Framework):
                     self.costos[costIndex] = 999999
                 
             self.costo_minimo = min(self.costos)
+            print(self.costo_minimo)
+            self.stepTest()
+            
